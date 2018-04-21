@@ -15,6 +15,14 @@ var urlSchema = new Schema({
   created_at: Date
 });
 
+
+// var initialInsert = new counter({_id: 'url_count',seq: 1});
+//
+// initialInsert.save(function (err, book) {
+//       if (err) return console.error(err);
+//       console.log(book.seq + " saved to bookstore collection.");
+//     });
+
 urlSchema.pre('save', function(next){
   var doc = this;
   counter.findByIdAndUpdate({_id: 'url_count'}, {$inc: {seq: 1} }, function(error, counter) {

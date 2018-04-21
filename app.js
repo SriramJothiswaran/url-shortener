@@ -8,6 +8,10 @@ var base58 = require('./base58.js');
 
 // grab the url model
 var Url = require('./models/url');
+var user = {
+_id: 'url_count',
+seq: 1
+};
 
 mongoose.connect('mongodb://admin:adminpass@ds247499.mlab.com:47499/url');
 
